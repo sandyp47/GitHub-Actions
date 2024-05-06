@@ -11,12 +11,9 @@ jobs:
     environment: Dev
     steps:
       - name: gitclone 
-        run: git clone
-https://github.com/Shubhambawa98/testenv.git
+        run: git clone https://github.com/sandyp47/GitHub-Actions.git
       - name: docker installation 
-        run: curl -fsSL
-https://get.docker.com
-| sh 
+        run: curl -fsSL https://get.docker.com | sh 
       - name: docker login 
         run: docker login -u ${{secrets.DOCKERHUBUSERNAME}} -p ${{secrets.DOCKERHUBPASSWORD}}
       - name: docker build 
