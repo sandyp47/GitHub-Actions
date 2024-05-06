@@ -22,7 +22,8 @@ jobs:
       - name: test
         run: echo "hello"
       - name: docker tag & push  
-        run: docker tag fast_api:satyam shubhambawa98/testlkm:sandy && docker push shubhambawa98/testlkm:sandy
+        run: docker tag fast_api:satyam shubhambawa98/testlkm:psk && docker push shubhambawa98/testlkm:psk
+        
       - name: login Target Server
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -34,3 +35,4 @@ jobs:
              sudo docker login -u ${{secrets.DOCKERHUBUSERNAME}} -p ${{secrets.DOCKERHUBPASSWORD}}
              sudo docker pull shubhambawa98/testlkm:latest
              sudo docker run -d -P shubhambawa98/testlkm:latest
+      
