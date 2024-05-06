@@ -18,11 +18,11 @@ jobs:
       - name: docker login 
         run: docker login -u ${{secrets.DOCKERHUBUSERNAME}} -p ${{secrets.DOCKERHUBPASSWORD}}
       - name: docker build 
-        run: cd testenv && docker build . -t fast_api:sandy
+        run: cd testenv && docker build . -t fast_api:satyam
       - name: test
         run: echo "hello"
       - name: docker tag & push  
-        run: docker tag fast_api:sandy shubhambawa98/testlkm:sandy && docker push shubhambawa98/testlkm:sandy
+        run: docker tag fast_api:satyam shubhambawa98/testlkm:sandy && docker push shubhambawa98/testlkm:sandy
       - name: login Target Server
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -34,9 +34,3 @@ jobs:
              sudo docker login -u ${{secrets.DOCKERHUBUSERNAME}} -p ${{secrets.DOCKERHUBPASSWORD}}
              sudo docker pull shubhambawa98/testlkm:latest
              sudo docker run -d -P shubhambawa98/testlkm:latest
-      
-      
-      
-      
-      
-    
